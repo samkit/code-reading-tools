@@ -2,7 +2,7 @@
 
 rm -f cscope.files
 
-for type in "*.c *.C *.cpp *.h *.H *.hpp *.inl *.tcc"
+for type in "*.c" "*.C" "*.cpp" "*.h" "*.H" "*.hpp" "*.inl" "*.tcc"
 do
     find -name "$type" >> cscope.files
 done
