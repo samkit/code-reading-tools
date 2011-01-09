@@ -101,6 +101,7 @@ if [ -d "$HOME/bin" ]
 then 
     PATH="$HOME/bin:$PATH" 
 fi
+export CSCOPE_EDITOR=cscope_vim
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
