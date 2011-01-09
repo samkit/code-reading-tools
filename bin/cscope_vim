@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "x$VIM_SESSION_NAME" = "x" ]
+then
+    VIM_SESSION_NAME="SAMKIT.CONNEXION_L.DEFAULT"
+fi
+
+gvim --servername $VIM_SESSION_NAME --remote-tab $*
