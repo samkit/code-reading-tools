@@ -24,6 +24,8 @@ set expandtab
 set smartindent
 set shiftwidth=4
 set cscopetag
+set splitright
+set splitbelow
 
 filetype plugin on
 
