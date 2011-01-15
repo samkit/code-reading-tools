@@ -15,6 +15,8 @@ map <A-8> :tabnext 8<CR>
 map <A-9> :tabnext 9<CR>
 map <A-0> :tablast<CR>
 
+set guitablabel=[%N]-%f
+
 set incsearch
 set hlsearch
 set smartcase
