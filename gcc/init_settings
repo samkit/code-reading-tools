@@ -1,0 +1,7 @@
+set print pretty on
+set print demangle on
+set print asm-demangle on
+set demangle-style gnu
+set print object on
+set print vtbl on -- check this
+
