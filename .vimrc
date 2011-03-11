@@ -1,5 +1,10 @@
 " Curator: Samkit Jain
 
+map <F11> :!create_tags<CR>
+
+set tags+=~/code/lib_tags/c++-tags
+"set tags+=~/code/lib_tags/boost-tags
+
 " Firefox like mapping
 map <C-Tab> :tabnext<CR>
 map <C-S-Tab> :tabprevious<CR>
@@ -16,6 +21,7 @@ map <A-9> :tabnext 9<CR>
 map <A-0> :tablast<CR>
 
 set guitablabel=[%N]-%f
+set cursorline
 
 set incsearch
 set hlsearch
