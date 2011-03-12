@@ -2,7 +2,7 @@ Title: Hacking Vim 7.2
 Author: Kim Schulz
 Type: Ebook
 
-Contents
+Useful contents
     Pesonalizing vim
         balloonexpr Pg.44
             Create a vim_function to display the source of the CPP function under definition
