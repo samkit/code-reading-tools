@@ -1,0 +1,13 @@
+Title: Hacking Vim 7.2
+Author: Kim Schulz
+Type: Ebook
+
+Contents
+    Pesonalizing vim
+        balloonexpr Pg.44
+            Create a vim_function to display the source of the CPP function under definition
+            Create a vim_function to display the name of the function in which we are in
+        abbreviations Pg.47
+            Useful for modelines in files
+
+# vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 expandtab:
