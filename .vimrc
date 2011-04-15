@@ -23,6 +23,8 @@ map <A-0> :tablast<CR>
 set guitablabel=[%N]-%f
 set cursorline
 
+set modeline
+set modelines=10
 set incsearch
 set hlsearch
 set smartcase
@@ -50,3 +52,5 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
+" Abbreviations
+iabbrev book_modeline # vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 softtabstop=4 expandtab foldtext=getline(v\:foldstart).'('.v\:foldstart.')':
