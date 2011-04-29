@@ -1,0 +1,8 @@
+Title: Python Language Reference
+Author: Guido
+Type: Ebook
+
+Chapter 3:
+    3.4.3 Metaclasses
+
+# vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 softtabstop=4 expandtab foldtext=getline(v\:foldstart).'('.v\:foldstart.')':

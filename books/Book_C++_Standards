@@ -1,0 +1,5 @@
+Title:
+Author:
+Type: Ebook
+
+# vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 softtabstop=4 expandtab foldtext=getline(v\:foldstart).'('.v\:foldstart.')':
