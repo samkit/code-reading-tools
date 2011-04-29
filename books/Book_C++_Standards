@@ -1,7 +1,11 @@
-Title: C++ International Standard
-Document number: N2461
+Title: C++ International Standard (Working Draft, Standard for Programming Language C++)
+Document number: N2461=07-0331
 Author:
 Type: Ebook
+
+Chapter 1.
+    1.4 Implementation compliance
+        6. The templates, classes, functions and objects in the library have external linkage
 
 Chapter 2. Lexical Conventions
     Translation unit is a source file including all the headers and source files by '#include' directive
@@ -20,6 +24,7 @@ Chapter 3. Basic concepts
         3.3.1 Point of declaration (good examples of where the actual declarations start)
             8. The point of declaration of a function-local predefined variable is immediately before the function-body of a function definition.
 
-        3.3.2
+        3.3.2 Local scope
+            2. Potential scope of a variable declared inside try-catch block ends at the closing brace of last handler.
 
 # vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 softtabstop=4 expandtab foldtext=getline(v\:foldstart).'('.v\:foldstart.')':
