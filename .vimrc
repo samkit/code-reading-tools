@@ -36,8 +36,14 @@ set shiftwidth=4
 set cscopetag
 set splitright
 set splitbelow
+set textwidth=110
 
 filetype plugin on
+
+syntax keyword userKeywords Samkit CHECKME REVIEW CHECKME
+highlight userKeywords term=standout ctermfg=0 ctermbg=3 guifg=Blue guibg=Yellow
+
+set runtimepath+=~/code/code-reading-tools/.vim/
 
 " OmniCppComplete - http://vim.wikia.com/wiki/C%2B%2B_code_completion
 let OmniCpp_NamespaceSearch = 1
@@ -54,3 +60,4 @@ set completeopt=menuone,menu,longest,preview
 
 " Abbreviations
 iabbrev book_modeline # vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 softtabstop=4 expandtab foldtext=getline(v\:foldstart).'('.v\:foldstart.')':
+
