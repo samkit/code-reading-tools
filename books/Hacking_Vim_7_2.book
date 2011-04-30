@@ -27,18 +27,18 @@ Useful contents
         :loadview View.vim, :mkview
         :undolist, :undo & g- Pg.105
         :foldtext Pg.111
-        Opening files using ftp Pg. 116
+        Opening files using ftp Pg.116
     Advanced formatting
         Format options: fo(FormatOptions), co(Comment) etc Pg.130
         indentexpr - write your own indenter
-        Apply formatting to full file: 1G=G, = tells to indent the line and can be done in visual mode Pg. 132
-        [no]paste to turn off pasting the code with indenting each new line incrementally Pg. 135
-        equalprog - specify external indenter such as `indent' Pg. 136
+        Apply formatting to full file: 1G=G, = tells to indent the line and can be done in visual mode Pg.132
+        [no]paste to turn off pasting the code with indenting each new line incrementally Pg.135
+        equalprog - specify external indenter such as `indent' Pg.136
     Basic vim scripting
-        'syntax match', 'syntax keyword' and then 'highlight <word> <color specification>' Pg. 142
-        syntax region to create regions like /* .. */ and highlight them Pg. 143
-        syntax cluster Pg. 145
-        Creating syntax files for custom filetypes Pg. 145
+        'syntax match', 'syntax keyword' and then 'highlight <word> <color specification>' Pg.142
+        syntax region to create regions like /* .. */ and highlight them Pg.143
+        syntax cluster Pg.145
+        Creating syntax files for custom filetypes Pg.145
         Variables
             number: integer, hexadecimal, octal
             string: "this" or 'this' (same logic as shell scripting)
@@ -51,7 +51,7 @@ Useful contents
             dictionary
                 let myDict = { "ONE" : 1, "TWO" : 2 } (same as python)
                 myDict['ONE'] == 1 or myDict.ONE == 1(first letter always ASCII)
-                Binding a function to a dictionary Pg. 162
+                Binding a function to a dictionary Pg.162
             funcref
                 let functionReference = function("Function")
             scope (default is global or function whichever is less)
@@ -72,13 +72,13 @@ Useful contents
         Variable argument list
             function Sum(arg1, arg2, ...)
             Accessed from a:{0} till a:{a:0} where a:0 is the length of arg list. This is only to access ellipsis args.
-            a:000 gives the ellipsis arguments as a list. Pg. 171
+            a:000 gives the ellipsis arguments as a list. Pg.171
         Deleting a function
             delfunction <FUNCTION_NAME>
         In build functions
             help 'function-list'
     Extended vim scripting
-        Access any setting like &runtimepath (Note: & in the beginning) Pg. 177
+        Access any setting like &runtimepath (Note: & in the beginning) Pg.177
         exists("myVariable") checks if a variable name myVariable was defined
         unlet myVariable is reverse of let
         Key mapping
@@ -90,9 +90,45 @@ Useful contents
             help 'write-filetype-plugin'
             help 'write-compiler-plugin'
             help 'write-library-script'
-        has("gui_running") to detect if gvim is running or vim  Pg. 182
+        has("gui_running") to detect if gvim is running or vim  Pg.182
         Operating system check
             has("unix"), has("win95") etc
             help 'feature-list'
         Vim version check
             v:version == 701 && has("patch123") is 7.1.123+
+        Debugging vim scripts
+            vim -D <WHATEVER> -- debug mode Pg.186
+            :debug call MyFunction()
+            Debug commands Pg.186
+                n - [next]
+                s - [step]
+                i - [interrupt] the current process and return to debug mode
+                q - [quit]
+                c - [continue]
+                f - [finish] continue without stopping at breakpoints and return to debug mode when done
+                Breakpoints
+                    breakadd
+                        func linenum functionNam*
+                        file linenum fileName
+                        here
+                    breaklist
+                    breakdel [number|*]
+            Other Ex commands can be fired from debug prompt (help 'ex-command-index')
+        Documenting vim Pg.191
+            *TAG1* - creates jump tag TAG1
+            |TAG1| - link to jump to tag TAG1
+            ~ - changes the color of the text before it
+            > ... code ... < - put vim code between ><
+            helptags docdir (where docdir = VIMHOME/doc) - builds documentation index
+        Using external interpreters
+            Python  Pg.196 (have'nt read much TODO)
+    Appendix
+        Vim as an IDE Pg.206
+            help compiler - setup up compiler integration if not already supported
+            help quickfix - jump between compile errors
+            debugger integration
+                VimDebug - http://www.vim.org/scripts/script.php?script_id=663
+                Clewn - gdb integration - http://clewn.sourceforge.net
+                VTreeExplorer - file explorer - http://vim.sourceforge.net/scripts/script.php?script_id=184
+                ProjMgr - project management
+                JDE - compilation of all scripts to form a Vim IDE - http://www.vim.org/scripts/script.php?script_id=1213
