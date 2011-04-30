@@ -1,0 +1,43 @@
+Title: Hacking Vim 7.2
+Author: Kim Schulz
+Type: Ebook
+
+Useful contents
+    Pesonalizing vim
+        balloonexpr Pg.44
+            Create a vim_function to display the source of the CPP function under definition
+            Create a vim_function to display the name of the function in which we are in
+        abbreviations Pg.47
+            Useful for modelines in files
+    Better navigation
+        Buffers
+        gf - goto file
+            suffixadd()
+            includeexpr()
+        vimgrep
+        Markers
+            sign(visible) Pg.69
+            marks(hidden) Pg.71
+    Templates
+        snipMate Pg.78
+        Other usage of taglist Pg.83
+    Productivity Boosters
+        Playing recording Pg.92
+        :source Session.vim, :mksession Pg.93,94
+        :loadview View.vim, :mkview
+        :undolist, :undo & g- Pg.105
+        :foldtext Pg.111
+        Opening files using ftp Pg. 116
+    Advanced formatting
+        Format options: fo(FormatOptions), co(Comment) etc Pg.130
+        indentexpr - write your own indenter
+        Apply formatting to full file: 1G=G, = tells to indent the line and can be done in visual mode Pg. 132
+        [no]paste to turn off pasting the code with indenting each new line incrementally Pg. 135
+        equalprog - specify external indenter such as `indent' Pg. 136
+    Basic vim scripting
+        'syntax match', 'syntax keyword' and then 'highlight <word> <color specification>' Pg. 142
+        syntax region to create regions like /* .. */ and highlight them Pg. 143
+        syntax cluster Pg. 145
+        Creating syntax files for custom filetypes Pg. 145
+
+# vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 softtabstop=4 expandtab foldtext=getline(v\:foldstart).'('.v\:foldstart.')':

@@ -1,0 +1,36 @@
+Title: C++ International Standard (Working Draft, Standard for Programming Language C++)
+Document number: N2461=07-0331
+Author:
+Type: Ebook
+
+Chapter 1.
+    1.4 Implementation compliance
+        6. The templates, classes, functions and objects in the library have external linkage
+
+Chapter 2. Lexical Conventions
+    Translation unit is a source file including all the headers and source files by '#include' directive
+    2.13.4 Literals
+         6. string literals are treated as "array of n const char" and has static storage duration.
+        10. string literals with same value can or cannot be pointing to same memory location. (implementation defined)
+
+Chapter 3. Basic concepts
+    3.2 One definition rule
+        3. Inline function's defition should be present in every translation unit
+        5. Definition of an implicitly defined constructor appears in every translation unit. (Let say compared to one definition when given in another translation unit. Increases code size and blotting.)
+
+    3.3 Declarative regions and scopes
+        2. Scope v/s potential scope
+
+        3.3.1 Point of declaration (good examples of where the actual declarations start)
+            8. The point of declaration of a function-local predefined variable is immediately before the function-body of a function definition.
+
+        3.3.2 Local scope
+            2. Potential scope of a variable declared inside try-catch block ends at the closing brace of last handler.
+
+        3.4.1 Unqualified name lookup
+             6. Name lookup sequence with respect to function-scope, included namespaces and then global. The lookup is only done in the area above the use of the variable.
+             7. See example
+             8. See example (note: "global scope, before the definition of M::N::X::f")
+            14. If definition of a member of a namespace is outside its namespace and any variable is used in its definition then that variable is looked first as a member of the namespace.
+
+# vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 softtabstop=4 expandtab foldtext=getline(v\:foldstart).'('.v\:foldstart.')':
