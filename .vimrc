@@ -39,12 +39,13 @@ set splitbelow
 set textwidth=110
 
 
-syntax keyword userKeywords Samkit CHECKME REVIEW CHECKME
-highlight userKeywords term=standout ctermfg=0 ctermbg=3 guifg=Blue guibg=Yellow
-
 set runtimepath^=~/code/code-reading-tools/.vim/ " this should always be before 'filetype plugin on'
 set runtimepath+=~/code/code-reading-tools/.vim/after
 filetype plugin on
+
+syntax case ignore
+syntax keyword UserKeywords Samkit CHECKME REVIEW CHECKME
+highlight link UserKeywords Todo
 
 " OmniCppComplete - http://vim.wikia.com/wiki/C%2B%2B_code_completion
 let OmniCpp_NamespaceSearch = 1
