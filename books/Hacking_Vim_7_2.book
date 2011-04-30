@@ -72,3 +72,27 @@ Useful contents
         Variable argument list
             function Sum(arg1, arg2, ...)
             Accessed from a:{0} till a:{a:0} where a:0 is the length of arg list. This is only to access ellipsis args.
+            a:000 gives the ellipsis arguments as a list. Pg. 171
+        Deleting a function
+            delfunction <FUNCTION_NAME>
+        In build functions
+            help 'function-list'
+    Extended vim scripting
+        Access any setting like &runtimepath (Note: & in the beginning) Pg. 177
+        exists("myVariable") checks if a variable name myVariable was defined
+        unlet myVariable is reverse of let
+        Key mapping
+            hasmapto('<...>') checks if the given string has a mapping to any key
+            <Leader> is the user defined key in global variable 'mapleader'
+            <Plug> -- DONT KNOW! CHECKME    -- help <Plug>
+            <SID>  -- DONT KNOW! CHECKME    -- help <SID>
+            help 'script-local'
+            help 'write-filetype-plugin'
+            help 'write-compiler-plugin'
+            help 'write-library-script'
+        has("gui_running") to detect if gvim is running or vim  Pg. 182
+        Operating system check
+            has("unix"), has("win95") etc
+            help 'feature-list'
+        Vim version check
+            v:version == 701 && has("patch123") is 7.1.123+
