@@ -39,5 +39,3 @@ Useful contents
         syntax region to create regions like /* .. */ and highlight them Pg. 143
         syntax cluster Pg. 145
         Creating syntax files for custom filetypes Pg. 145
-
-# vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 softtabstop=4 expandtab foldtext=getline(v\:foldstart).'('.v\:foldstart.')':

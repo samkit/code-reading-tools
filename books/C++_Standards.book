@@ -32,5 +32,3 @@ Chapter 3. Basic concepts
              7. See example
              8. See example (note: "global scope, before the definition of M::N::X::f")
             14. If definition of a member of a namespace is outside its namespace and any variable is used in its definition then that variable is looked first as a member of the namespace.
-
-# vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 softtabstop=4 expandtab foldtext=getline(v\:foldstart).'('.v\:foldstart.')':
