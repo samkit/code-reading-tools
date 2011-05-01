@@ -77,6 +77,7 @@ Useful contents
             delfunction <FUNCTION_NAME>
         In build functions
             help 'function-list'
+        autocommand is executed before applying modeline
     Extended vim scripting
         Access any setting like &runtimepath (Note: & in the beginning) Pg.177
         exists("myVariable") checks if a variable name myVariable was defined
