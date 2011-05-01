@@ -37,6 +37,7 @@ set cscopetag
 set splitright
 set splitbelow
 set textwidth=110
+set autoread    " update the file automatically if changed outside vim
 
 set runtimepath^=~/code/code-reading-tools/.vim/ " this should always be before 'filetype plugin on'
 set runtimepath+=~/code/code-reading-tools/.vim/after
