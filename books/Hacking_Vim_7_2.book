@@ -86,6 +86,7 @@ Useful contents
             <Leader> is the user defined key in global variable 'mapleader'
             <Plug> -- DONT KNOW! CHECKME    -- help <Plug>
             <SID>  -- DONT KNOW! CHECKME    -- help <SID>
+            <sfile> -- DONT KNOW! CHECKME   -- help <sfile>
             help 'script-local'
             help 'write-filetype-plugin'
             help 'write-compiler-plugin'

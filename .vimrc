@@ -38,14 +38,13 @@ set splitright
 set splitbelow
 set textwidth=110
 
-
 set runtimepath^=~/code/code-reading-tools/.vim/ " this should always be before 'filetype plugin on'
 set runtimepath+=~/code/code-reading-tools/.vim/after
 filetype plugin on
 
-syntax case ignore
-syntax keyword UserKeywords Samkit CHECKME REVIEW CHECKME
-highlight link UserKeywords Todo
+"syntax case ignore
+syntax keyword UserKeywords Samkit CHECKME REVIEW CHECKME containedin=ALL
+highlight def link UserKeywords Todo
 
 " OmniCppComplete - http://vim.wikia.com/wiki/C%2B%2B_code_completion
 let OmniCpp_NamespaceSearch = 1
@@ -62,4 +61,3 @@ set completeopt=menuone,menu,longest,preview
 
 " Abbreviations
 iabbrev book_modeline # vim: set foldenable foldmethod=indent foldlevel=1 foldcolumn=4 tabstop=4 softtabstop=4 expandtab foldtext=getline(v\:foldstart).'('.v\:foldstart.')':
-
