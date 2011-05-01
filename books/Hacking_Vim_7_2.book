@@ -69,6 +69,7 @@ Useful contents
                 str1 !~ str2: str1 does not contain str2
             for-endfor
             while-endwhile
+            function-endfunction
         Variable argument list
             function Sum(arg1, arg2, ...)
             Accessed from a:{0} till a:{a:0} where a:0 is the length of arg list. This is only to access ellipsis args.
