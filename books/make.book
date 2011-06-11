@@ -32,6 +32,62 @@ Writing the commands in rules
     -rm -f - `-' ignores errors
     In recursive makefiles, command lines using $(MAKE) are always run even when top level make was run with
         -t, -n or -q option. Pg.51
+        or use '+' in the beginning of the command. Pg.75
     Communicating variables to sub-make Pg.51
     MAKELEVEL Pg.51
     Canned commands Pg.55
+    NOTE: Each line from command line is executed in its own shell
+
+How to use variables
+    Assignments Pg.59
+        := simple variables / immediate assignment
+         = recursively expanded variable / deferred assignment
+        ?= assigns if variable is undefined
+        += appends, preserves the type of variables i.e. simple/recursive
+    NOTE: Do not put comment on the same line as defining a variable. The space between end of variable
+        definition and starting of comment is also treated as variable value. Pg.60
+    $(var:.c=.o) - replaces .c from the end of string $(var) or followed up whitespace to .o Pg.60
+    Nested variables references cannot specify functions inside them. Pg.62 -- Need more understanding
+    `override' directive Pg.65
+    Target specific variables values Pg.67
+        Target specific values affect variables that come in both prerequisites and as targets themselves
+        When multi-target prerequisites is used, then prerequisites will use target specific value from first target.
+
+Conditional parts of makefile
+    Syntax of conditional directives Pg.72
+
+Functions for transforming text
+    Functions Pg.78
+        string functions
+            $(subst from,to,text)
+            $(patsubst pattern,replacement,text)
+            $(strip string)
+            $(findstring find,in)
+            $(filter patterns...,text)
+            $(filter-out patterns...,text)
+            $(sort list) -- removes duplicates
+            $(word n,list) -- n start from 1
+            $(wordlist startIndex,endIndex,list) -- end is inclusive
+            $(words list) -- count of number of words
+            $(firstword)
+            $(lastword)
+        file functions
+            $(dir names...) -- like dirname()
+            $(notdir names...) -- extracts filenames
+            $(suffix names...)
+            $(basename names...)
+            $(addsuffix suffix,names...)
+            $(addprefix prefix,names...)
+            $(join list1,list2) -- nth word from list1 is concatenated to nth word from list2
+            $(wildcard shellpattern)
+            $(realpath names...) -- canonical path
+            $(abspath names...) -- not canonical path
+        conditional functions
+            $(if condition,then-part[,else-part]) -- result is string
+            $(or condition1[,condition2[,condition3..]])  -- result is first non-empty string from condition1+ or empty
+            $(and condition1[,condition2[,condition3..]])  -- result is first non-empty string from condition1+ or empty
+        $(foreach var,list,text) -- var,text gets expanded before starting loop. text is expanded in each iteration. Pg.84
+        $(call variable,param,param...) :AWESOME: Pg.85
+
+TODO:
+    1. Check how .PHONY makes the target as non-default.
