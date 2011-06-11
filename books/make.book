@@ -1,0 +1,19 @@
+Title: GNU make
+Author: Richard M. Stallman, Roland McGrath, Paul D. Smith
+Type: Ebook
+
+An introduction to Makefiles
+    .DEFAULT_GOAL Pg.5
+
+Writing Makefile
+    Priority: GNUmakefile, makefile, Makefile. GNUmakefile is for GNU make only.
+    AWESOME: When no makefile is present and make is invoked with a target then based on implicit rules it
+        will try to remake the target. Like 3.cpp is present, and `make 3' is given then make using its implicit
+        rule with compile and link 3.cpp to 3. Pg.12.
+    -I / --include-dir - search files which are not found in cwd. Pg.13
+    Other special variables like MAKE_RESTARTS etc. Pg.14
+    Immediate and deferred variable assignments. Pg.18-19
+    Secondary expansion .SECONDEXPANSION Pg.20
+
+Writing rules
+    Types of prerequisites Pg.24
