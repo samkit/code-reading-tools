@@ -30,3 +30,8 @@ Writing rules
 Writing the commands in rules
     @echo - @ suppresses print command
     -rm -f - `-' ignores errors
+    In recursive makefiles, command lines using $(MAKE) are always run even when top level make was run with
+        -t, -n or -q option. Pg.51
+    Communicating variables to sub-make Pg.51
+    MAKELEVEL Pg.51
+    Canned commands Pg.55
