@@ -17,3 +17,16 @@ Writing Makefile
 
 Writing rules
     Types of prerequisites Pg.24
+    VPATH Pg.27 -- TODO: Experiment with this
+    Special built-in target names like .PHONY Pg.33
+        .LOW_RESOLUTION_TIME - ask make to consider time in seconds precision and not more Pg.35
+        .EXPORT_ALL_VARIABLES
+        .NOTPARALLEL
+        .DELETE_ON_ERROR
+    Static pattern rules - deducing prerequisites from targets Pg.38
+    Double colon rule Pg.39
+    Generating prerequisites automatically, like `g++ -MM *.cpp' Pg.40
+
+Writing the commands in rules
+    @echo - @ suppresses print command
+    -rm -f - `-' ignores errors
