@@ -24,7 +24,7 @@ Writing rules
         .NOTPARALLEL
         .DELETE_ON_ERROR
     Static pattern rules - deducing prerequisites from targets Pg.38
-    Double colon rule Pg.39
+    Double colon rule -- means that its prerequisites will not be intermediate target Pg.39
     Generating prerequisites automatically, like `g++ -MM *.cpp' Pg.40
 
 Writing the commands in rules
@@ -55,6 +55,10 @@ How to use variables
 
 Conditional parts of makefile
     Syntax of conditional directives Pg.72
+        ifdef
+        ifndef
+        ifeq
+        ifneq
 
 Functions for transforming text
     Functions Pg.78
@@ -88,6 +92,45 @@ Functions for transforming text
             $(and condition1[,condition2[,condition3..]])  -- result is first non-empty string from condition1+ or empty
         $(foreach var,list,text) -- var,text gets expanded before starting loop. text is expanded in each iteration. Pg.84
         $(call variable,param,param...) :AWESOME: Pg.85
+        $(value variable) Pg.86
+        $(eval makeSyntax) -- like python.exec() Pg.87
+        $(origin variable)
+            'undefined'
+            'default'
+            'environment'
+            'environment override'
+            'file'
+            'command line'
+            'override'
+            'automatic'
+        $(flavor variable) Pg.88
+            undefined
+            simple
+            recursive
+        $(shell shellCommand) Pg.89
+        Controlling functions
+            $(error text...)
+            $(warning text...)
+            $(info text...)
+
+How to run make
+    Anything in makefile is a goal unless then start with `-' or contains `='. Pg.91
+    MAKECMDGOALS -- equal to goals specified only on command line. Pg.92
+    --keep-going / -k -- ask make to continue even if error came so that all errors can be debuged together.  Pg.96
+    --debug[=option] Pg.97
+        a (all)
+        b (basic) - prints targets which were out of date and if build failed/passed.
+        v (verbose) - +basic, prints prerequisites which were not remade, which makefiles parsed
+        i (implicit) - +basic, prints implicit rules used
+        j (jobs) - prints info about specific sub commands
+        m (makefile) - +basic, prints message when remaking makefile
+    --print-datab-ase / -p -- prints the database of implicit rules Pg.99
+
+Using implicit rules
+    Catalog of implicit rules Pg.102
+    Variables used by implicit rules Pg.105
+
 
 TODO:
     1. Check how .PHONY makes the target as non-default.
+    2. Check double colon rule. Pg.110
