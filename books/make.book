@@ -159,6 +159,7 @@ Makefile conventions
         makeinfo
         install
         shar -- AWESOME
+        mkdep
 
 TODO:
     1. Check how .PHONY makes the target as non-default.
