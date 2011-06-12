@@ -6,3 +6,5 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 set foldtext=getline(v\:foldstart).'('.v\:foldstart.')'
+
+" TODO: Make AWESOME as highlight group
