@@ -150,6 +150,15 @@ Using make to update archives Pg.119
     -j / parallel make does not handle `ar' of same library properly, so using single thread for `ar'. Pg.120
 
 Makefile conventions
+    If using VPATH variable then always use automatic variables as they represent file with appropriate path.  Pg.129
+    Variable names for storing appropriate directory names Pg.132
+    Specify `SHELL = /bin/sh' as best practise.
+    Programs can be used with make
+        ranlib
+        fixincludes
+        makeinfo
+        install
+        shar -- AWESOME
 
 TODO:
     1. Check how .PHONY makes the target as non-default.
