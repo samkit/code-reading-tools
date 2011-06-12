@@ -24,7 +24,8 @@ Writing rules
         .NOTPARALLEL
         .DELETE_ON_ERROR
     Static pattern rules - deducing prerequisites from targets Pg.38
-    Double colon rule -- means that its prerequisites will not be intermediate target Pg.39
+    Double colon rule -- means that its prerequisites will not be intermediate target i.e. prerequisites
+        should always exists Pg.39
     Generating prerequisites automatically, like `g++ -MM *.cpp' Pg.40
 
 Writing the commands in rules
@@ -129,7 +130,26 @@ How to run make
 Using implicit rules
     Catalog of implicit rules Pg.102
     Variables used by implicit rules Pg.105
+    Automatic variables
+        $@ - target name or archive file
+        $% - archive member -- libfoo.a(foo.o), then this is foo.o and $@ is libfoo.a
+        $< - name of first prerequisites
+        $? - prerequisites newer than target, for archive - member named
+        $^ - all prerequisites without repetition
+        $+ - all prerequisites
+        $| - all order-only prerequisites
+        $* - stem of target pattern i.e. part that matched the pattern in target string
+        Variant variable names - obsolete - can be done using $(dir names...) - eg:
+            $(@D) - directory path of the target
+    When matching patterns, the directory name is removed from the target and the search for implicit rule is
+        done based on the file name only and after matching full target name is used. So %.c will match
+        src/foo.c also. Pg.113
+    Implicit rule search algorithm Pg.116
 
+Using make to update archives Pg.119
+    -j / parallel make does not handle `ar' of same library properly, so using single thread for `ar'. Pg.120
+
+Makefile conventions
 
 TODO:
     1. Check how .PHONY makes the target as non-default.
