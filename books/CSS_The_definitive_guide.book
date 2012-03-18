@@ -1,0 +1,9 @@
+Title: CSS - The definitive Guide, 3rd Edition
+Author: Eric Meyer
+Type: Ebook
+
+Chapter 2 - Selectors
+
+Chapter 5 - Fonts
+    5.1.2
+        Don't put generic font family in single quotes, else user agent will not treat it as generic family.
