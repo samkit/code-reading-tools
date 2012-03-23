@@ -1,34 +1,48 @@
 Title: C++ International Standard (Working Draft, Standard for Programming Language C++)
-Document number: N2461=07-0331
+Document number: N3337
 Type: Ebook
-Link: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2461.pdf
+Source: 
 
-Chapter 1.
-    1.4 Implementation compliance
-        6. The templates, classes, functions and objects in the library have external linkage
+Chapter 1 - General
+    
+Chapter 14 - Templates
+    14.1 - Pg.304
+        4. Non-type template parameter:
+            integral / enumeration type
+            pointer to object / pointer to function
+            lvalue reference to object / lvalue reference to function
+            pointer to member
+            std::nullptr
+        6. Address of non-type non-reference type cannot be taken or its value cannot be changed.
+           But when const reference is created to it, then a temporary is created.
+        10. Default arguments for are constructed by merging all defaults in all declarations.
+            Like:
+                template <class T1, class T2 = int> class A;
+                template <class T1 = int, class T2> class A;
+                
+                is equivalent to
+                template <class T1 = int, class T2 = int> class A;
+        14. Default argument for template-template template parameter is only applicable in declaration scope.
+            Eg: Pg. 306
+        15. Template parameter pack cannot be expanded in same template declaration.
 
-Chapter 2. Lexical Conventions
-    Translation unit is a source file including all the headers and source files by '#include' directive
-    2.13.4 Literals
-         6. string literals are treated as "array of n const char" and has static storage duration.
-        10. string literals with same value can or cannot be pointing to same memory location. (implementation defined)
+    14.2 - Pg.307
+        4. Template specialization appearing after . / -> should have `template' keyword.
+           Eg: p.template alloc<200>();     - Pg.308
 
-Chapter 3. Basic concepts
-    3.2 One definition rule
-        3. Inline function's defition should be present in every translation unit
-        5. Definition of an implicitly defined constructor appears in every translation unit. (Let say compared to one definition when given in another translation unit. Increases code size and blotting.)
+    14.3 - Template arguments - Pg.308
+        2. If a template is overloaded with type-id and non-type parameters, then type-id version is selected.
+        5. Explicit destructor call should specify template arguments explicitly.
+        7. When template parameter does not match for overloaded template function, then that is ignored.
 
-    3.3 Declarative regions and scopes
-        2. Scope v/s potential scope
-
-        3.3.1 Point of declaration (good examples of where the actual declarations start)
-            8. The point of declaration of a function-local predefined variable is immediately before the function-body of a function definition.
-
-        3.3.2 Local scope
-            2. Potential scope of a variable declared inside try-catch block ends at the closing brace of last handler.
-
-        3.4.1 Unqualified name lookup
-             6. Name lookup sequence with respect to function-scope, included namespaces and then global. The lookup is only done in the area above the use of the variable.
-             7. See example
-             8. See example (note: "global scope, before the definition of M::N::X::f")
-            14. If definition of a member of a namespace is outside its namespace and any variable is used in its definition then that variable is looked first as a member of the namespace.
+        14.3.1 - Template type arguments
+            2. A template type argument can be an incomplete type.
+        14.3.2 - Template non-type arguments
+            1. Valid argument:
+                - a constant expression which is
+                    * address of static duration object - external / internal linkage
+                    * function with external / internal linkage
+                    * function templates
+                    * not non-static class member - either reference or pointer (see 3)
+            2. String literals are not qualified for template parameter.
+            4. Reference type template-parameter cannot bind to temporary-unnamed-lvalue or lvalue-with-no-linkage.
