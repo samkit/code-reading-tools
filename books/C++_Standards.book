@@ -47,10 +47,61 @@ Chapter 14 - Templates
             4. Reference type template-parameter cannot bind to temporary-unnamed-lvalue or lvalue-with-no-linkage.
             5. Pointer to [member] function goes through overload resolution rule when given as a template argument.
         14.3.3 - Template template argument
-            2. When considering template-template argument then primary class template is checked against without considering default parameter.
+            2. When considering template-template argument then *primary* class template is checked against without considering default parameter.
                Template parameter pack does not match strict template-template parameter. For eg:
                template <class...> class C;
                template <template <class> V> class X;
                X<C> x;      // ill-formed
             3. Template-template argument match examples. Pg.314
         14.5 - Template declarations
+            14.5.1 - Class templates
+                3. When defining member template function of a template class outside class declaration then
+                   template pack should be expanded like:
+                   template <class... Types> void B<Types...>::f3() { }
+
+                14.5.1.2 - Member classes of class template
+                    1. Member class of template class can defined outside but before template instantiation. *CLEAN*
+                       For eg:
+                       template <class T> struct A {
+                           class B;
+                       };
+                       template <class T> class A<T>::B { };
+                14.5.1.4 - Enumeration members of class templates
+                    1. Same as 14.5.1.2.1
+            14.5.2 - Member templates
+                3. Member function template cannot be virtual.
+                4. Member function template cannot override virtual function from base class.
+                   For eg:
+                   class B { virtual void f(int); };
+                   class D : public B {
+                       template <class T> void f(T);    // does not override B::f(int)
+                       void f(int i) { f<>(i); }        // overriding function
+                   };
+                5. Conversion member function template and constructor member function template cannot take
+                   explicit template parameters because they are not called by their names but are implicitly
+                   called.
+                7. using-declaration cannot bring conversion function template specialization from base class into child class.
+            14.5.3 - Variadic templates
+                1. Template parameter pack - terminology for class templates taking parameter pack.
+                2. Function parameter pack - terminology for function templates taking parameter pack.
+                5. How parameter packs are expanded. (see text)
+            14.5.4 - Friends
+                1. Specialization of class templates take friendships from primary class template.
+                3. Template friend declaration covers all instantiations like implicit, explicit, or partially.
+                5. Specialization of class template whose member template is a friend of other non-template
+                   class should have same signature as primary class template member. (see example)
+                8. Friend template declaration cannot be partial specialization.
+            14.5.5 - Class template partial specialization
+                1. Partial template specialization should be declared before its use.
+                6. Name lookup is not done for partial specialization, but done on primary template and all
+                   partial specializations declared till the point of use is considered.
+                8. Restrictions:
+                    - Non-type parameter should be used as is in partial specialization. For eg:
+                        template <int I, int J> struct A {};
+                        template <int I> struct A<I+5, I*2> {};     // error
+                    - Non-type parameter should not depend on other template parameters in partial specializations. For eg:
+                      template <class T, T t> struct C {};
+                      template <class T> struct C<T, 1> {};         // error
+                    - Argument pack should be last template argument.
+
+                14.5.5.1 - Matching of class template partial specialization
