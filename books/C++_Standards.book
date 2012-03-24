@@ -1,7 +1,7 @@
 Title: C++ International Standard (Working Draft, Standard for Programming Language C++)
 Document number: N3337
 Type: Ebook
-Source: 
+Source: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf
 
 Chapter 1 - General
     
@@ -19,8 +19,7 @@ Chapter 14 - Templates
             Like:
                 template <class T1, class T2 = int> class A;
                 template <class T1 = int, class T2> class A;
-                
-                is equivalent to
+            is equivalent to
                 template <class T1 = int, class T2 = int> class A;
         14. Default argument for template-template template parameter is only applicable in declaration scope.
             Eg: Pg. 306
@@ -46,3 +45,12 @@ Chapter 14 - Templates
                     * not non-static class member - either reference or pointer (see 3)
             2. String literals are not qualified for template parameter.
             4. Reference type template-parameter cannot bind to temporary-unnamed-lvalue or lvalue-with-no-linkage.
+            5. Pointer to [member] function goes through overload resolution rule when given as a template argument.
+        14.3.3 - Template template argument
+            2. When considering template-template argument then primary class template is checked against without considering default parameter.
+               Template parameter pack does not match strict template-template parameter. For eg:
+               template <class...> class C;
+               template <template <class> V> class X;
+               X<C> x;      // ill-formed
+            3. Template-template argument match examples. Pg.314
+        14.5 - Template declarations
