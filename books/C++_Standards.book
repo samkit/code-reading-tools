@@ -6,7 +6,7 @@ Source: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf
 Chapter 1 - General
     
 Chapter 14 - Templates
-    14.1 - Pg.304
+    14.1
         4. Non-type template parameter:
             integral / enumeration type
             pointer to object / pointer to function
@@ -22,14 +22,14 @@ Chapter 14 - Templates
             is equivalent to
                 template <class T1 = int, class T2 = int> class A;
         14. Default argument for template-template template parameter is only applicable in declaration scope.
-            Eg: Pg. 306
+            Eg:
         15. Template parameter pack cannot be expanded in same template declaration.
 
-    14.2 - Pg.307
+    14.2
         4. Template specialization appearing after . / -> should have `template' keyword.
-           Eg: p.template alloc<200>();     - Pg.308
+           Eg: p.template alloc<200>();
 
-    14.3 - Template arguments - Pg.308
+    14.3 - Template arguments
         2. If a template is overloaded with type-id and non-type parameters, then type-id version is selected.
         5. Explicit destructor call should specify template arguments explicitly.
         7. When template parameter does not match for overloaded template function, then that is ignored.
@@ -52,7 +52,7 @@ Chapter 14 - Templates
                template <class...> class C;
                template <template <class> V> class X;
                X<C> x;      // ill-formed
-            3. Template-template argument match examples. Pg.314
+            3. Template-template argument match examples.
         14.5 - Template declarations
             14.5.1 - Class templates
                 3. When defining member template function of a template class outside class declaration then
@@ -103,5 +103,56 @@ Chapter 14 - Templates
                       template <class T, T t> struct C {};
                       template <class T> struct C<T, 1> {};         // error
                     - Argument pack should be last template argument.
+                    - Argument list of partial specialization cannot have default parameter.
 
                 14.5.5.1 - Matching of class template partial specialization
+                    1. If more than one specialization matches and all matching ones are equally specialized
+                       then program is ill-formed. *NOTE* that primary template is not used in this case.
+                14.5.5.2 - Partial ordering of class template specialization
+                    2. Prefered class template specialization is selected by converting it into a function
+                       template and then applying ordering rules of function templates.
+                14.5.5.3 - Members of class template specialization
+                    2. Partial specialization of nested member template of primary template is shared by all
+                       implicit template specializations. But partial specialization of nested member template
+                       of explicit specialization of enclosing class does not share the specializations from
+                       primary class template. For eg:
+                       template <class T> struct A {
+                           template <class T2> struct B {};         // #1
+                           template <class T2> struct B<T2*> {};    // #2
+                       };
+                       template <> template <class T2> struct A<short>::B {};   // #3
+
+                       A<char>::B<int*> abcip;      // uses #2
+                       A<short>::B<int*> absip;     // uses #3
+                       A<char>::B<int> abci;        // uses #1
+
+            14.5.6 - Function templates
+                4. *Expression* using template parameter in either function-parameter or return-type is considered
+                   part of function signature. For eg:
+                   template <int I, int J> A<I+J> f(A<I>, A<J>);        // #1
+                   template <int K, int L> A<K+L> f(A<K>, A<L>);        // same as #1
+                   template <int I, int J> A<I-J> f(A<I>, A<J>);        // different from #1 !!!!
+                5/6/7. Two function templates are equivalent when declared in same scope have identical
+                   template parameters, function parameters and return type (including expressions using
+                   template arguments from 14.5.6.4).
+                   For eg:
+                   // Guaranteed to be same
+                   template <int I> void f(A<I>, A<I+10>);
+                   template <int I> void f(A<I>, A<I+10>);
+                   // Guaranteed to be different
+                   template <int I> void f(A<I>, A<I+10>);
+                   template <int I> void f(A<I>, A<I+11>);
+                   // Ill-formed - functionally equivalent
+                   template <int I> void f(A<I>, A<I+10>);
+                   template <int I> void f(A<I>, A<I+1+2+3+4>);
+
+                14.5.6.2 - Partial order of function templates
+                    5. Partial order for selecting appropriate overload of function template to use only
+                       considers explicit template arguments but not others like function-parameter-pack or
+                       function parameters with default argument or ellipsis parameters.
+            14.5.7 - Alias templates
+                2. Alias template template-id is equivalent to associated type when template parameter
+                   substition is done.
+                3. type-id declared using alias template should refer to itself directly or indirectly.
+
+        14.6 - Name resolution
