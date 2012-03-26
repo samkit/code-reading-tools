@@ -156,3 +156,28 @@ Chapter 14 - Templates
                 3. type-id declared using alias template should refer to itself directly or indirectly.
 
         14.6 - Name resolution
+            8. Template definitions are diagnosed for know type names but for dependant type names this
+               diagnostic is delayed till template instantiation.
+
+            14.6.1 - Locally declared names
+                2. Within the scope of template [partial] specialization, the injected-class-name is
+                   equivalent to template-name followed by template-parameters. For eg:
+                   templaet <> clsas Y<int> {
+                       Y* p;        // == Y<int>
+                   };
+                9. Definition of member of class template outside template definition, base class names hides
+                   the template-parameter names.
+            14.6.2 - Dependent names
+                3. Names from dependent base class template are not examined during unqualified name lookup.
+                   For eg:
+                   typedef double A;
+                   template <class T> class B { typedef int A; };
+                   template <class T> class X : B<T> {
+                       A a;         // is double *not* int from base
+                   };
+
+                   Guess: reason for this might be that during template diagnosis unqualified names are
+                   immediately binded to available variables rather than waiting for type dependent names.
+
+                14.6.2.1 - Dependent types
+                    7. *DID NOT UNDERSTAND THE NOTE*
