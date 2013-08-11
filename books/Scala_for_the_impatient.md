@@ -30,6 +30,7 @@ Without this, '1 to 4' goes as a Range object.
 lazy val words = scala.io.Source.fromFile("filename").mkString
 ```
 > **Note**: Lazy variables are thread-safe and hence has a cost attached to it.
+
 ######2.12.
 1. A throw expression has type "Nothing".
 2. Type of if/else block when one of its branch is "Nothing", is the type of other branch.
@@ -49,11 +50,10 @@ finally {
 ```
 
 ##Chapter 3 - Working with arrays
-######3.2.
+######3.2. Mutable arrays like std::vector in C++
 ```scala
 scala.collection.mutable.ArrayBuffer
 ```
-(like std::vector in C++).
 ######3.5.
 1. Sorting Array in place, scala.util.Sorting.quickSort(array).
 2. Array to string, Array.mkString(sep).
