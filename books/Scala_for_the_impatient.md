@@ -1,4 +1,4 @@
-#Scala for the impatient
+#[Scala for the Impatient][]
 > Author: Cay Horstmann
 
 > Type: Ebook
@@ -68,3 +68,6 @@ Array.ofDim(3, 4) // 3 rows, 4 columns
 ```scala
 import scala.collection.JavaConversions.bufferAsJavaList // to convert scala buffer to java list
 ```
+
+
+[Scala for the Impatient]: http://www.amazon.in/Scala-Impatient-Cay-S-Horstmann/dp/8131796051/ref=sr_1_1?ie=UTF8&qid=1376238658&sr=8-1&keywords=scala+for+the+impatient
