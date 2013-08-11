@@ -34,3 +34,15 @@ Chapter 2 - Control Structures and Functions
             // always called
             // Remember that variables defined inside try block is not visible here
         }
+
+Chapter 3 - Working with arrays
+    3.2. scala.collection.mutable.ArrayBuffer (like std::vector in C++).
+    3.5.
+        Sorting Array in place, scala.util.Sorting.quickSort(array).
+        Array to string, Array.mkString(sep).
+
+        ArrayOps / StringOps - useful implicit classes.
+    3.7. Multidimensional arrays.
+        Array.ofDim(3, 4) // 3 rows, 4 columns
+    3.8. Java interoparability
+        For eg: import scala.collection.JavaConversions.bufferAsJavaList // to convert scala buffer to java list
