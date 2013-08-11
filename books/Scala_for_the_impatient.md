@@ -29,10 +29,10 @@ Without this, '1 to 4' goes as a Range object.
 ```scala
 lazy val words = scala.io.Source.fromFile("filename").mkString
 ```
-Lazy variables are thread-safe and hence has a cost attached to it.
+> **Note**: Lazy variables are thread-safe and hence has a cost attached to it.
 ######2.12.
-#######A throw expression has type "Nothing".
-#######Type of if/else block when one of its branch is "Nothing", is the type of other branch.
+1. A throw expression has type "Nothing".
+2. Type of if/else block when one of its branch is "Nothing", is the type of other branch.
 ```scala
 try {
     // do something bad that throws
